@@ -31,9 +31,89 @@ const GameProvider = ({ children }) => {
     setGameMessage(`Your turn, ${newPlayer}.`);
   };
 
-  const checkGameState = () => {};
+  const winConditions = () => {
+    let newPlayer = null;
+    if (currentPlayer === 'x') {
+      newPlayer = 'o';
+    }
+    if (currentPlayer === 'o') {
+      newPlayer = 'x';
+    }
+    //x wins
+    if (board[0] === board[1] && board[1] === board[2] && board[2] === 'x') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[3] === board[4] && board[4] === board[5] && board[5] === 'x') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[6] === board[7] && board[7] === board[8] && board[8] === 'x') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[0] === board[3] && board[3] === board[6] && board[6] === 'x') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[1] === board[4] && board[4] === board[7] && board[7] === 'x') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[2] === board[5] && board[5] === board[8] && board[8] === 'x') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[0] === board[4] && board[4] === board[8] && board[8] === 'x') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[2] === board[4] && board[4] === board[6] && board[6] === 'x') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
 
-  const winConditions = () => {};
+    //o wins
+    if (board[0] === board[1] && board[1] === board[2] && board[2] === 'o') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[3] === board[4] && board[4] === board[5] && board[5] === 'o') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[6] === board[7] && board[7] === board[8] && board[8] === 'o') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[0] === board[3] && board[3] === board[6] && board[6] === 'o') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[1] === board[4] && board[4] === board[7] && board[7] === 'o') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[2] === board[5] && board[5] === board[8] && board[8] === 'o') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[0] === board[4] && board[4] === board[8] && board[8] === 'o') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+    if (board[2] === board[4] && board[4] === board[6] && board[6] === 'o') {
+      setActive(false);
+      setGameMessage(`You win, ${newPlayer}!`);
+    }
+  };
+
+  const checkGameStatus = () => {
+    if (!active) return;
+    winConditions();
+  };
+
+  checkGameStatus();
 
   return (
     <GameContext.Provider
