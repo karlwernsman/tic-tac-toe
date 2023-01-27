@@ -3,12 +3,12 @@ import Board from './component/board/Board.js';
 import { useGameContext } from './context/GameContext.js';
 
 function App() {
-  const { gameMessage } = useGameContext();
+  const { gameMessage, handleResetClick } = useGameContext();
   return (
     <div>
       <p>{gameMessage}</p>
       <Board />
-      <button>Reset Game</button>
+      <button onClick={handleResetClick}>Reset Game</button>
     </div>
   );
 }

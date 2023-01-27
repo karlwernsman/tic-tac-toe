@@ -123,6 +123,13 @@ const GameProvider = ({ children }) => {
 
   checkGameStatus();
 
+  const handleResetClick = () => {
+    setCurrentPlayer('x');
+    setActive(true);
+    setGameMessage('Your turn, X.');
+    setBoard(['', '', '', '', '', '', '', '', '']);
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -135,6 +142,7 @@ const GameProvider = ({ children }) => {
         gameMessage,
         setGameMessage,
         handleBoxClick,
+        handleResetClick,
       }}
     >
       {children}
