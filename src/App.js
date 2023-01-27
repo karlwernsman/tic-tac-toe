@@ -8,6 +8,7 @@ function App() {
     <div>
       <p>{gameMessage}</p>
       <Board />
+      <button>Reset Game</button>
     </div>
   );
 }

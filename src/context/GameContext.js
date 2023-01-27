@@ -9,7 +9,7 @@ const GameProvider = ({ children }) => {
   const [currentPlayer, setCurrentPlayer] = useState('x'); //'x' or 'o'
   const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']); //showcasing taken and open boxes
   const [active, setActive] = useState(true); //boolean
-  const [gameMessage, setGameMessage] = useState('Your turn, x.'); //'Your turn __', 'You win __' or 'It's a cat's game!'
+  const [gameMessage, setGameMessage] = useState('Your turn, X.'); //'Your turn __', 'You win __' or 'It's a cat's game!'
 
   const handleBoxClick = (index) => {
     if (!active) return;
@@ -28,7 +28,7 @@ const GameProvider = ({ children }) => {
     }
     setCurrentPlayer(newPlayer);
 
-    setGameMessage(`Your turn, ${newPlayer}.`);
+    setGameMessage(`Your turn, ${newPlayer.toUpperCase()}.`);
   };
 
   const winConditions = () => {
@@ -42,74 +42,82 @@ const GameProvider = ({ children }) => {
     //x wins
     if (board[0] === board[1] && board[1] === board[2] && board[2] === 'x') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[3] === board[4] && board[4] === board[5] && board[5] === 'x') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[6] === board[7] && board[7] === board[8] && board[8] === 'x') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[0] === board[3] && board[3] === board[6] && board[6] === 'x') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[1] === board[4] && board[4] === board[7] && board[7] === 'x') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[2] === board[5] && board[5] === board[8] && board[8] === 'x') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[0] === board[4] && board[4] === board[8] && board[8] === 'x') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[2] === board[4] && board[4] === board[6] && board[6] === 'x') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
 
     //o wins
     if (board[0] === board[1] && board[1] === board[2] && board[2] === 'o') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[3] === board[4] && board[4] === board[5] && board[5] === 'o') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[6] === board[7] && board[7] === board[8] && board[8] === 'o') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[0] === board[3] && board[3] === board[6] && board[6] === 'o') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[1] === board[4] && board[4] === board[7] && board[7] === 'o') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[2] === board[5] && board[5] === board[8] && board[8] === 'o') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[0] === board[4] && board[4] === board[8] && board[8] === 'o') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
     }
     if (board[2] === board[4] && board[4] === board[6] && board[6] === 'o') {
       setActive(false);
-      setGameMessage(`You win, ${newPlayer}!`);
+      setGameMessage(`You win, ${newPlayer.toUpperCase()}!`);
+    }
+  };
+
+  const tieConditions = () => {
+    if (!board.includes('')) {
+      setActive(false);
+      setGameMessage(`It is a game of the cat.`);
     }
   };
 
   const checkGameStatus = () => {
     if (!active) return;
+    tieConditions();
     winConditions();
   };
 
