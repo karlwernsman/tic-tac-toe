@@ -19,10 +19,16 @@ const GameProvider = ({ children }) => {
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
 
-    if (currentPlayer === 'x') setCurrentPlayer('o');
-    if (currentPlayer === 'o') setCurrentPlayer('x');
+    let newPlayer = null;
+    if (currentPlayer === 'x') {
+      newPlayer = 'o';
+    }
+    if (currentPlayer === 'o') {
+      newPlayer = 'x';
+    }
+    setCurrentPlayer(newPlayer);
 
-    setGameMessage(`Your turn, ${currentPlayer}.`);
+    setGameMessage(`Your turn, ${newPlayer}.`);
   };
 
   const checkGameState = () => {};
