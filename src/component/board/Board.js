@@ -7,8 +7,8 @@ export default function Board() {
   const { board } = useGameContext();
   return (
     <div className="boxes">
-      {board.map((box) => (
-        <Box key={box.index} box={box} />
+      {board.map((box, index) => (
+        <Box key={index} box={box} />
       ))}
     </div>
   );
