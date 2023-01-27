@@ -9,7 +9,7 @@ const GameProvider = ({ children }) => {
   const [currentPlayer, setCurrentPlayer] = useState('x'); //'x' or 'o'
   const [board, setBoard] = useState(['', '', '', '', '', '', '', '', '']); //showcasing taken and open boxes
   const [active, setActive] = useState(true); //boolean
-  const [gameMessage, setGameMessage] = useState('Your turn, X.'); //'Your turn __' or 'You win __'
+  const [gameMessage, setGameMessage] = useState('Your turn, X.'); //'Your turn __', 'You win __' or 'It's a cat's game!'
 
   return (
     <GameContext.Provider
@@ -38,4 +38,8 @@ const useGameContext = () => {
   return context;
 };
 
-export { GameProvider, useGameContext };
+const handleBoxClick = () => {
+  console.log('Clicked a box!');
+};
+
+export { GameProvider, useGameContext, handleBoxClick };
