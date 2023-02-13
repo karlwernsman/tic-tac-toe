@@ -1,0 +1,7 @@
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #354f52;
+  height: 70vh;
+  width: 70vw;
+}
